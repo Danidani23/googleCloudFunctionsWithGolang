@@ -1,6 +1,11 @@
+# cloud.google.com/go/functions v1.15.1
+## explicit; go 1.19
+cloud.google.com/go/functions/metadata
 # github.com/GoogleCloudPlatform/functions-framework-go v1.8.0
 ## explicit; go 1.11
-github.com/GoogleCloudPlatform/functions-framework-go/functions
+github.com/GoogleCloudPlatform/functions-framework-go/funcframework
+github.com/GoogleCloudPlatform/functions-framework-go/internal/events/pubsub
+github.com/GoogleCloudPlatform/functions-framework-go/internal/fftypes
 github.com/GoogleCloudPlatform/functions-framework-go/internal/registry
 # github.com/cloudevents/sdk-go/v2 v2.14.0
 ## explicit; go 1.17

@@ -6,15 +6,15 @@ package mycloudeventfunction
 
 import (
 	"context"
-
-	"github.com/cloudevents/sdk-go/v2/event"
+	cloudevents "github.com/cloudevents/sdk-go/v2"
 )
 
 // Function myCloudEventFunction accepts and handles a CloudEvent object
-func MyCloudEventFunction(ctx context.Context, e event.Event) error {
+func MyCloudEventFunction(ctx context.Context, e cloudevents.Event) error {
 	// Your code here
 	// Access the CloudEvent data payload via e.Data() or e.DataAs(...)
 
 	// Return nil if no error occurred
+
 	return nil
 }

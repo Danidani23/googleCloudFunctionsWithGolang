@@ -1,6 +1,8 @@
 package main
 
 import (
+	"github.com/GoogleCloudPlatform/functions-framework-go/functions"
+	mycloudeventfunction "github.com/cloud-functions-test"
 	"log"
 	"os"
 
@@ -9,6 +11,24 @@ import (
 )
 
 func main() {
+	// registering the functions
+
+	t := os.Getenv("FUNCTION_TARGET")
+	switch t {
+	case "":
+		log.Panicln("FUNCTION_TARGET variable is not defined")
+	case "HelloWorld":
+		// The http function case
+		functions.HTTP("HelloWorld", mycloudeventfunction.HelloWorld)
+	case "MyCloudEventFunction":
+		//First the CloudEvent Function
+		functions.CloudEvent("MyCloudEventFunction", mycloudeventfunction.MyCloudEventFunction)
+		
+	default:
+		log.Panicln("Unknown function target: ", t)
+
+	}
+
 	// Use PORT environment variable, or default to 8080.
 	port := "8080"
 	if envPort := os.Getenv("PORT"); envPort != "" {
@@ -26,5 +46,4 @@ func main() {
 		log.Fatalf("funcframework.StartHostPort: %v\n", err)
 	}
 
-	funcframework.RegisterCloudEventFunctionContext()
 }
